@@ -1,0 +1,21 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "HackGen, Consolas, 'Courier New', monospace",
+  "editor.formatOnSave": true,
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+
+  "extensions.ignoreRecommendations": false,
+
+  "git.enableSmartCommit": true,
+
+  "workbench.colorTheme": "Default Dark Modern",
+  "workbench.startupEditor": "none",
+
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+
+  "update.showReleaseNotes": false,
+
+  "security.workspace.trust.untrustedFiles": "open"
+}
