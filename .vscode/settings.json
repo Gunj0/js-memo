@@ -10,6 +10,7 @@
   "git.enableSmartCommit": true,
 
   "workbench.colorTheme": "Default Dark Modern",
+  "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
 
   "explorer.confirmDelete": false,
