@@ -1,0 +1,17 @@
+body {
+  text-align: center;
+}
+
+.warnig-message-area {
+  height: 30px;
+}
+
+.warnig-message {
+  width: 600px;
+  height: 30px;
+  margin: 0 auto;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 15px;
+}
