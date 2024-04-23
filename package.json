@@ -24,5 +24,19 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5"
   },
-  "_comment": {}
+  "__memo": {
+    "main": "これはなに？",
+    "dependencies": {
+      "express": "",
+      "express-async-errors": "",
+      "morgan": ""
+    },
+    "devDependencies": {
+      "@types/express": "",
+      "@types/morgan": "",
+      "nodemon": "",
+      "ts-node": "",
+      "typescript": ""
+    }
+  }
 }
