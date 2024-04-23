@@ -18,6 +18,8 @@
 
   // ダークモダンテーマにする
   "workbench.colorTheme": "Default Dark Modern",
+  // サイドバーを右側にする
+  "workbench.sideBar.location": "right",
   // 起動時のデフォルトページをなしにする
   "workbench.startupEditor": "none",
 
