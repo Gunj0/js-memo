@@ -1,21 +1,34 @@
 {
+  // デフォルトフォーマッタをPrettierに設定
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  // フォントを白源にする
   "editor.fontFamily": "HackGen, Consolas, 'Courier New', monospace",
+  // 保存時にフォーマットする
   "editor.formatOnSave": true,
+  // ミニマップをオフにする
   "editor.minimap.enabled": false,
+  // タブサイズを空白2個にする
   "editor.tabSize": 2,
 
+  // 拡張機能を推奨する
   "extensions.ignoreRecommendations": false,
 
+  // ステージされた変更がない場合に全ての変更をコミットする
   "git.enableSmartCommit": true,
 
+  // ダークモダンテーマにする
   "workbench.colorTheme": "Default Dark Modern",
+  // 起動時のデフォルトページをなしにする
   "workbench.startupEditor": "none",
 
+  // 削除確認をなしにする
   "explorer.confirmDelete": false,
+  // ドラッグドロップ確認をなしにする
   "explorer.confirmDragAndDrop": false,
 
+  // リリースノート表示をなしにする
   "update.showReleaseNotes": false,
 
+  // 信頼できないファイルを開く
   "security.workspace.trust.untrustedFiles": "open"
 }

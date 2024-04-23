@@ -4,13 +4,14 @@
 
 - nvm 等の Node.js バージョン管理ツールを使用しても可
 
-2. ターミナルから以下を実行して
+2. ターミナルから以下を実行してパッケージをインストール
 
-- npm install
+```shell
+npm install
+```
 
-# .vscode について
+3. ターミナルから以下を実行して任意のファイルを実行できる
 
-- settings.json
-  - このワークスペース内にのみ VSCode の設定を適用できる
-- extensions.json
-  - このワークスペースでの推奨拡張機能を設定できる
+```shell
+npx ts-node hello.ts
+```
