@@ -1,4 +1,19 @@
-# 起動手順
+# Name
+
+- TS-Sample
+
+- TS-Sample は、TypeScript のサンプルコードをまとめたものです。
+
+# Requirement
+
+- Node.js
+- npm
+- ts-node
+- express
+- nodemon
+- morgan
+
+# Installation
 
 1. Node.js(+npm)をインストール
 
@@ -6,12 +21,30 @@
 
 2. ターミナルから以下でパッケージをインストール
 
-```shell
+```bash
 npm install
 ```
 
-3. ターミナルから以下で任意のファイルを実行できる
+# Usage
 
-```shell
+- ターミナルから以下で任意のファイルを実行できる
+
+```bash
 npx ts-node hello.ts
 ```
+
+- ターミナルから以下でリバーシを起動できる
+
+```bash
+npm start
+```
+
+# Author
+
+- Gunj0
+- X: https://twitter.com/gunjo2000
+- GitHub: https://github.com/Gunj0
+
+# License
+
+- [MIT license](https://en.wikipedia.org/wiki/MIT_License).
