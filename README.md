@@ -30,7 +30,7 @@ npm install
 - ターミナルから以下で任意のファイルを実行できる
 
 ```bash
-npx ts-node hello.ts
+npx ts-node .\TSNote\InterfaceNote.ts
 ```
 
 - ターミナルから以下でリバーシを起動できる
