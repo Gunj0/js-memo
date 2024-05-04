@@ -1,50 +1,72 @@
-# Name
+# TS-Sample
 
-- TS-Sample
+- TypeScript のサンプルコードをまとめたものです。
 
-- TS-Sample は、TypeScript のサンプルコードをまとめたものです。
+## Overview
 
-# Requirement
+- TypeScript のサンプルコードを見ることができます。
+- リバーシアプリではアーキテクチャも参考にすることができます。
 
-- Node.js
-- npm
-- ts-node
-- express
-- nodemon
-- morgan
+## Install
 
-# Installation
+- Node.js(+npm)をインストールする
+  - nvm 等の Node.js バージョン管理ツールを使用しても可
+- リポジトリをプルする
 
-1. Node.js(+npm)をインストール
+```bash
+git pull https://github.com/Gunj0/ts-sample.git
+```
 
-- nvm 等の Node.js バージョン管理ツールを使用しても可
-
-2. ターミナルから以下でパッケージをインストール
+- パッケージを復元する
 
 ```bash
 npm install
 ```
 
-# Usage
+## Usage
 
-- ターミナルから以下で任意のファイルを実行できる
+- 任意のファイルを実行する
 
 ```bash
 npx ts-node .\TSNote\InterfaceNote.ts
 ```
 
-- ターミナルから以下でリバーシを起動できる
+- リバーシアプリを起動する
 
 ```bash
 npm start
 ```
 
-# Author
+## Requirement
 
-- Gunj0
-- X: https://twitter.com/gunjo2000
-- GitHub: https://github.com/Gunj0
+### dependencies
 
-# License
+- Node.js
+- express
+  - Node.js の 軽量 Web アプリフレームワーク
+- express-async-errors
+  - Express のエラーハンドリングライブラリ
+- morgan
+  - Express のログ出力ライブラリ
 
-- [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+### devDependencies
+
+- @types/express
+  - Express の型定義パッケージ
+- @types/morgan
+  - Morgan の型定義パッケージ
+- nodemon
+  - Node.js のホットリロード
+- ts-node
+  - TS ファイルのまま Node.js を実行する。例：npx ts-node main.ts
+- typescript
+  - TypeScript
+
+## Author
+
+- GitHub: [Gunj0](https://github.com/Gunj0)
+- X(Twitter): [@gunjo2000](https://twitter.com/gunjo2000)
+
+## License
+
+- [MIT license](https://en.wikipedia.org/wiki/MIT_License)
