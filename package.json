@@ -1,7 +1,7 @@
 {
   "name": "ts_sample",
   "version": "1.0.0",
-  "description": "TypeScriptのサンプル",
+  "description": "TypeScriptのサンプルコードまとめ",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -25,18 +25,6 @@
     "typescript": "^5.4.5"
   },
   "__memo": {
-    "main": "これはなに？",
-    "dependencies": {
-      "express": "",
-      "express-async-errors": "",
-      "morgan": ""
-    },
-    "devDependencies": {
-      "@types/express": "",
-      "@types/morgan": "",
-      "nodemon": "",
-      "ts-node": "",
-      "typescript": ""
-    }
+    "main": "ここにメモを書ける"
   }
 }

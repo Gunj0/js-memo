@@ -1,5 +1,5 @@
 {
-  "watch": ["src"],
+  "watch": ["Reversi/src"],
   "ext": "ts",
-  "exec": "ts-node src/main.ts"
+  "exec": "ts-node reversi/src/main.ts"
 }
