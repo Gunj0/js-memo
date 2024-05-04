@@ -49,16 +49,21 @@ npm start
 
 ## ライブラリ
 
-### dependencies
+### basic
 
 - Node.js
   - JavaScript のランタイム
+
+### dependencies
+
 - express
   - Node.js の 軽量 Web アプリフレームワーク
 - express-async-errors
   - Express のエラーハンドリングライブラリ
 - morgan
   - Express のログ出力ライブラリ
+- mysql2
+  - MySQL クライアント
 
 ### devDependencies
 
@@ -70,7 +75,7 @@ npm start
   - Node.js のホットリロードツール
   - nodemon.json で設定したファイルに変更があるとコマンドを実行する
 - ts-node
-  - TS ファイルのまま Node.js を実行する。例：npx ts-node main.ts
+  - TS ファイルのまま Node.js を実行するツール
 - typescript
   - TypeScript
 

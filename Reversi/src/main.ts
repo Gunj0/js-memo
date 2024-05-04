@@ -1,6 +1,22 @@
 import express from "express";
 import morgan from "morgan";
 import "express-async-errors";
+import mysql from "mysql2/promise";
+
+const EMPTY = 0;
+const DARK = 1;
+const LIGHT = 2;
+
+const INITIAL_BOARD = [
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, DARK, LIGHT, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, LIGHT, DARK, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+  [EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY, EMPTY],
+];
 
 const PORT = 3000;
 
@@ -11,15 +27,103 @@ app.use(morgan("dev"));
 // Expressで静的ページを返す設定
 app.use(express.static("Reversi/static", { extensions: ["html"] }));
 
-// ルーティング
+// ルーティングサンプル
 app.get("/api/hello", async (req, res) => {
   res.json({
     message: "hello!",
   });
 });
+
 // エラーテスト用エンドポイント
 app.get("/api/error", async (req, res) => {
   throw new Error("Error!");
+});
+
+// 対戦開始
+app.post("/api/games", async (req, res) => {
+  const now = new Date();
+
+  const conn = await connectMySql();
+  try {
+    await conn.beginTransaction();
+    const gameInsertResult = await conn.execute<mysql.ResultSetHeader>(
+      "INSERT INTO games (started_at) VALUES (?)",
+      [now]
+    );
+    const gameId = gameInsertResult[0].insertId;
+    const turnInsertResult = await conn.execute<mysql.ResultSetHeader>(
+      "INSERT INTO turns (game_id, turn_count, next_disc, end_at) VALUES (?, ?, ?, ?)",
+      [gameId, 0, DARK, now]
+    );
+    const turnId = turnInsertResult[0].insertId;
+
+    const squareCount = INITIAL_BOARD.map((line) => line.length).reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+      0
+    );
+
+    const squaresInsertSql =
+      "INSERT INTO squares (turn_id, x, y, disc) VALUES " +
+      Array.from(Array(squareCount))
+        .map(() => "(?, ?, ?, ?)")
+        .join(",");
+    const squaresInsertValues: any[] = [];
+    INITIAL_BOARD.forEach((line, y) => {
+      line.forEach((disc, x) => {
+        squaresInsertValues.push(turnId);
+        squaresInsertValues.push(x);
+        squaresInsertValues.push(y);
+        squaresInsertValues.push(disc);
+      });
+    });
+    await conn.execute(squaresInsertSql, squaresInsertValues);
+
+    await conn.commit();
+  } finally {
+    await conn.end();
+  }
+
+  res.status(201).end();
+});
+
+// 盤面の取得
+app.get("/api/games/latest/turns/:turnCount", async (req, res) => {
+  const turnCount = parseInt(req.params.turnCount);
+  const conn = await connectMySql();
+
+  try {
+    const gameSelectResult = await conn.execute<mysql.RowDataPacket[]>(
+      "SELECT id, started_at FROM games ORDER BY id DESC LIMIT 1"
+    );
+    const game = gameSelectResult[0][0];
+
+    const turnSelectResult = await conn.execute<mysql.RowDataPacket[]>(
+      "SELECT id, game_id, turn_count, next_disc, end_at FROM turns " +
+        "WHERE game_id = ? AND turn_count = ?",
+      [game["id"], turnCount]
+    );
+    const turn = turnSelectResult[0][0];
+
+    const squareSelectResult = await conn.execute<mysql.RowDataPacket[]>(
+      "SELECT id, turn_id, x, y, disc FROM squares WHERE turn_id = ?",
+      [turn["id"]]
+    );
+    const squares = squareSelectResult[0];
+    const board = Array.from(Array(8)).map(() => Array.from(Array(8)));
+    squares.forEach((s) => {
+      board[s.y][s.x] = s.disc;
+    });
+    const responseBody = {
+      turnCount,
+      board,
+      nextDisc: turn["next_disc"],
+      // TODO: 決着がついている場合、game_resultテーブルから取得する
+      winnerDisc: null,
+    };
+    res.json(responseBody);
+  } finally {
+    await conn.end();
+  }
 });
 
 app.use(errorHandler);
@@ -39,5 +143,14 @@ function errorHandler(
   console.error("Unexpected error occurred", err);
   res.status(500).send({
     message: "Unexpected error occurred",
+  });
+}
+
+async function connectMySql() {
+  return await mysql.createConnection({
+    host: "localhost",
+    database: "reversi",
+    user: "reversi",
+    password: "password",
   });
 }
