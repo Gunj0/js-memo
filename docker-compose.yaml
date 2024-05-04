@@ -1,0 +1,12 @@
+version: "3"
+services:
+  mysql:
+    image: mysql
+    platform: linux/x86_64
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: reversi
+      MYSQL_USER: reversi
+      MYSQL_PASSWORD: password

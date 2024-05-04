@@ -1,96 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reversi</title>
-</head>
-<body>
-  <header>
-    <h1>リバーシですわよ</h1>
-  </header>
-  <main>
-    <div class="warnig-message-area">
-      <p class="warnig-message">白の番はスキップです</p>
-    </div>
-    <div class="board">
-      <!-- 1/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 2/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 3/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 4/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 5/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 6/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 7/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <!-- 8/8 -->
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-      <div class="square">0</div>
-    </div>
-  </main>
-  <footer>
-    <p>次は黒の番です</p>
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reversi</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>リバーシサンプル</h1>
+    </header>
+    <main>
+      <div class="warning-message-area">
+        <p class="warning-message">白の番はスキップです</p>
+      </div>
+      <div id="board" class="board"></div>
+    </main>
+    <footer>
+      <p>次は黒の番です</p>
+    </footer>
+    <script src="main.js"></script>
+  </body>
 </html>

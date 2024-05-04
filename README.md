@@ -25,6 +25,12 @@ git pull https://github.com/Gunj0/ts-sample.git
 npm install
 ```
 
+- MySQL コンテナを立ち上げる。
+
+```bash
+docker-compose up -d
+```
+
 ## Usage
 
 - 任意のファイルを実行する。

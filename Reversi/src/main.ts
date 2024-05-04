@@ -9,7 +9,7 @@ const app = express();
 // ログ出力ライブラリを使用(devは開発用の設定)
 app.use(morgan("dev"));
 // Expressで静的ページを返す設定
-// app.use(express.static('static', { extensions: ['html'] }));
+app.use(express.static("Reversi/static", { extensions: ["html"] }));
 
 // ルーティング
 app.get("/api/hello", async (req, res) => {
