@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import "express-async-errors";
 import mysql from "mysql2/promise";
+import { GameGateway } from "./dataaccess/gameGateway";
 
 const EMPTY = 0;
 const DARK = 1;
@@ -42,6 +43,8 @@ app.get("/api/error", async (req, res) => {
   throw new Error("Error!");
 });
 
+const gameGateway = new GameGateway();
+
 // 対戦開始
 app.post("/api/games", async (req, res) => {
   const now = new Date();
@@ -49,15 +52,14 @@ app.post("/api/games", async (req, res) => {
   const conn = await connectMySql();
   try {
     await conn.beginTransaction();
-    const gameInsertResult = await conn.execute<mysql.ResultSetHeader>(
-      "INSERT INTO games (started_at) VALUES (?)",
-      [now]
-    );
-    const gameId = gameInsertResult[0].insertId;
+    const gameRecord = gameGateway.insert(conn, now);
+    if (!gameRecord) {
+      throw new Error("Latest game not found");
+    }
 
     const turnInsertResult = await conn.execute<mysql.ResultSetHeader>(
       "INSERT INTO turns (game_id, turn_count, next_disc, end_at) VALUES (?, ?, ?, ?)",
-      [gameId, 0, DARK, now]
+      [gameRecord.id, 0, DARK, now]
     );
     const turnId = turnInsertResult[0].insertId;
 
