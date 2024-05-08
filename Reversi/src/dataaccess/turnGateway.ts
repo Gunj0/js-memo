@@ -26,4 +26,20 @@ export class TurnGateWay {
       record["end_at"]
     );
   }
+
+  async insert(
+    conn: mysql.Connection,
+    gameId: number,
+    turnCount: number,
+    nextDisc: number,
+    endAt: Date
+  ): Promise<TurnRecord> {
+    const turnInsertResult = await conn.execute<mysql.ResultSetHeader>(
+      "INSERT INTO turns (game_id, turn_count, next_disc, end_at) VALUES (?, ?, ?, ?)",
+      [gameId, turnCount, nextDisc, endAt]
+    );
+    const turnId = turnInsertResult[0].insertId;
+
+    return new TurnRecord(turnId, gameId, turnCount, nextDisc, endAt);
+  }
 }
