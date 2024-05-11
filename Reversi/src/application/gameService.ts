@@ -1,4 +1,4 @@
-import { connectMySql } from "../dataaccess/connection";
+import { connectMySql } from "../infrastructure/connection";
 import { TurnRepository } from "../domain/turn/turnRepository";
 import { firstTurn } from "../domain/turn/turn";
 import { GameRepository } from "../domain/game/gameRepository";
