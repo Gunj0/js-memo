@@ -1,9 +1,9 @@
 import { GameGateway } from "../infrastructure/gameGateway";
 import { connectMySql } from "../infrastructure/connection";
-import { toDisc } from "../domain/turn/disc";
-import { Point } from "../domain/turn/point";
-import { TurnRepository } from "../domain/turn/turnRepository";
-import { GameRepository } from "../domain/game/gameRepository";
+import { toDisc } from "../domain/model/turn/disc";
+import { Point } from "../domain/model/turn/point";
+import { TurnRepository } from "../domain/model/turn/turnRepository";
+import { GameRepository } from "../domain/model/game/gameRepository";
 
 // データアクセスクラス
 const gameGateway = new GameGateway();
