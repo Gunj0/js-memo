@@ -5,6 +5,7 @@ import mysql from "mysql2/promise";
 import { gameRouter } from "./presentation/gameRouter";
 import { turnRouter } from "./presentation/turnRouter";
 import { DomainError } from "./domain/error/domainError";
+import { ApplicationError } from "./application/error/application";
 
 const PORT = 3000;
 
@@ -40,6 +41,16 @@ function errorHandler(
       message: err.message,
     });
     return;
+  }
+  if (err instanceof ApplicationError) {
+    switch (err.type) {
+      case "LatestGameNotFound":
+        res.status(404).json({
+          type: err.type,
+          message: err.message,
+        });
+        return;
+    }
   }
 
   console.error("Unexpected error occurred", err);
