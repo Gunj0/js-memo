@@ -83,6 +83,31 @@ export class Board {
     return flipPoints;
   }
 
+  existValidMove(disc: Disc): boolean {
+    for (let y = 0; y < this._discs.length; y++) {
+      const line = this._discs[y];
+
+      for (let x = 0; x < line.length; x++) {
+        const discOnBoard = line[x];
+
+        // 空ではない点は無視
+        if (discOnBoard != Disc.Empty) {
+          continue;
+        }
+
+        const move = new Move(disc, new Point(x, y));
+        const flipPoints = this.listFlipPoints(move);
+
+        // ひっくり返せる点がある場合、置ける場所がある
+        if (flipPoints.length !== 0) {
+          return true;
+        }
+      }
+    }
+
+    return false;
+  }
+
   private wallDiscs(): Disc[][] {
     const walled: Disc[][] = [];
 

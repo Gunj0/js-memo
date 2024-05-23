@@ -31,12 +31,12 @@ export class TurnGateWay {
     conn: mysql.Connection,
     gameId: number,
     turnCount: number,
-    nextDisc: number,
+    nextDisc: number | undefined,
     endAt: Date
   ): Promise<TurnRecord> {
     const turnInsertResult = await conn.execute<mysql.ResultSetHeader>(
       "INSERT INTO turns (game_id, turn_count, next_disc, end_at) VALUES (?, ?, ?, ?)",
-      [gameId, turnCount, nextDisc, endAt]
+      [gameId, turnCount, nextDisc ?? null, endAt]
     );
     const turnId = turnInsertResult[0].insertId;
 
