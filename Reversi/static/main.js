@@ -2,14 +2,22 @@ const EMPTY = 0;
 const DARK = 1;
 const LIGHT = 2;
 
+const WINNER_DRAW = 0;
+const WINNER_DARK = 1;
+const WINNER_LIGHT = 2;
+
 const boardElement = document.getElementById("board");
 const nextDiscMessageElement = document.getElementById("next-disc-message");
+const warningMessageElement = document.getElementById("warning-message");
 
-async function showBoard(turnCount) {
+async function showBoard(turnCount, previousDisc) {
   const response = await fetch(`/api/games/latest/turns/${turnCount}`);
   const responseBody = await response.json();
   const board = responseBody.board;
   const nextDisc = responseBody.nextDisc;
+  const winnerDisc = responseBody.winnerDisc;
+
+  showWarningMessage(previousDisc, nextDisc, winnerDisc);
 
   showNextDiscMessage(nextDisc);
 
@@ -37,7 +45,7 @@ async function showBoard(turnCount) {
             y
           );
           if (registerTurnResponse.ok) {
-            await showBoard(nextTurnCount);
+            await showBoard(nextTurnCount, nextDisc);
           }
         });
       }
@@ -47,10 +55,42 @@ async function showBoard(turnCount) {
   });
 }
 
+function discToString(disc) {
+  return disc === DARK ? "黒⚫️" : "白⚪️";
+}
+
+function showWarningMessage(previousDisc, nextDisc, winnerDisc) {
+  const message = warningMessage(previousDisc, nextDisc, winnerDisc);
+
+  warningMessageElement.innerText = message;
+
+  if (message === null) {
+    warningMessageElement.style.display = "none";
+  } else {
+    warningMessageElement.style.display = "block";
+  }
+}
+
+function warningMessage(previousDisc, nextDisc, winnerDisc) {
+  if (nextDisc !== null) {
+    if (previousDisc === nextDisc) {
+      const skipped = nextDisc === DARK ? LIGHT : DARK;
+      return `${discToString(skipped)}の番はスキップです`;
+    } else {
+      return null;
+    }
+  } else {
+    if (winnerDisc === WINNER_DRAW) {
+      return "引き分けです";
+    } else {
+      return `${discToString(winnerDisc)}の勝ちです`;
+    }
+  }
+}
+
 function showNextDiscMessage(nextDisc) {
   if (nextDisc) {
-    const color = nextDisc === DARK ? "黒⚫️" : "白⚪️";
-    nextDiscMessageElement.innerText = `次は${color}の番です`;
+    nextDiscMessageElement.innerText = `次は${discToString(nextDisc)}の番です`;
   } else {
     nextDiscMessageElement.innerHTML = "";
   }
