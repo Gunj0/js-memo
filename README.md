@@ -1,19 +1,20 @@
 # TS-Sample
 
-- TypeScript のサンプルコードをまとめたものです。
-
 ## Overview
 
 - TSNote フォルダ
   - TypeScript のサンプルコードがまとめてあります。
 - Reversi フォルダ
-  - リバーシアプリを実行できます。アーキテクチャの参考になります。
+  - アプリケーションアーキテクチャの参考としての、リバーシアプリの実装です。
 
 ## Install
 
-- Node.js(+npm)をインストールする。
+- Node.js をインストールする。
 
+  - npm が一緒に自動インストールされます。
   - nvm 等の Node.js バージョン管理ツールを使用しても可。
+
+- Docker Desktop をインストールする。
 
 - リポジトリをプルする。
 
@@ -77,12 +78,13 @@ npm start
 - ts-node
   - TS ファイルのまま Node.js を実行するツール
 - typescript
-  - TypeScript
+  - JavaScript の静的型付けスーパーセット
 
 ## Author
 
 - GitHub: [Gunj0](https://github.com/Gunj0)
 - X(Twitter): [@gunjo2000](https://twitter.com/gunjo2000)
+- BlueSky: [@gunj0.bsky.social](https://bsky.app/profile/gunj0.bsky.social)
 
 ## License
 
