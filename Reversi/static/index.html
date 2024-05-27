@@ -11,14 +11,22 @@
       <h1>リバーシサンプル</h1>
     </header>
     <main>
-      <div class="warning-message-area">
-        <p id="warning-message" class="warning-message">白の番はスキップです</p>
-      </div>
-      <div id="board" class="board"></div>
+      <button>
+        <a href="/game/">対戦する</a>
+      </button>
+      <table>
+        <thead>
+          <tr>
+            <th>黒を打った回数</th>
+            <th>白を打った回数</th>
+            <th>勝った石</th>
+            <th>対戦開始時刻</th>
+            <th>対戦終了時刻</th>
+          </tr>
+        </thead>
+        <tbody id="games-table-body"></tbody>
+      </table>
     </main>
-    <footer>
-      <p id="next-disc-message">次は黒の番です</p>
-    </footer>
     <script src="main.js"></script>
   </body>
 </html>
