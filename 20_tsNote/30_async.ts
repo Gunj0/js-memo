@@ -1,7 +1,7 @@
+/* 非同期async/await */
 import fs from "fs"; // Node.jsのファイル読み込みライブラリ
 import util from "util"; // Node.jsの便利機能パッケージライブラリ
 
-/* 記法 */
 const promisifyReadFile = util.promisify(fs.readFile);
 
 // promise

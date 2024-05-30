@@ -1,7 +1,7 @@
 {
-  "name": "ts_sample",
+  "name": "js-memo",
   "version": "1.0.0",
-  "description": "TypeScriptのサンプルコードまとめ",
+  "description": "JS/TSメモ",
   "main": "index.js",
   "directories": {
     "doc": "docs"

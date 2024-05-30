@@ -1,4 +1,4 @@
-/* 記法 */
+/* クラス */
 class ClassNote1 {
   // フィールド
   v1: number; // デフォルトはpublic

@@ -1,5 +1,5 @@
 {
-  "watch": ["Reversi/src"],
+  "watch": ["30_reversi/src"],
   "ext": "ts",
-  "exec": "ts-node reversi/src/main.ts"
+  "exec": "ts-node 30_reversi/src/main.ts"
 }

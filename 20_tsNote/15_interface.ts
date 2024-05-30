@@ -1,4 +1,4 @@
-/* 記法 */
+/* インターフェース */
 interface INumGenerator {
   generate(): number;
 }
