@@ -2,33 +2,35 @@
 
 ## Overview
 
-- TSNote フォルダ
-  - TypeScript のサンプルコードがまとめてあります。
-- Reversi フォルダ
-  - アプリケーションアーキテクチャの参考としての、リバーシアプリの実装です。
+- 10_jsNote
+  - JavaScript の記法メモ
+- 20_tsNote
+  - TypeScript の記法メモ
+- 30_reversi フォルダ
+  - リバーシアプリ（アプリケーションアーキテクチャサンプル）
 
 ## Install
 
-- Node.js をインストールする。
+- Node.js をインストール
 
-  - npm が一緒に自動インストールされます。
-  - nvm 等の Node.js バージョン管理ツールを使用しても可。
+  - npm が一緒に自動インストールされる
+  - nvm 等の Node.js バージョン管理ツールを使用しても可
 
-- Docker Desktop をインストールする。
+- Docker Desktop をインストール
 
-- リポジトリをプルする。
+- リポジトリをプル
 
 ```bash
 git pull https://github.com/Gunj0/ts-sample.git
 ```
 
-- パッケージを復元する。
+- パッケージを復元
 
 ```bash
 npm install
 ```
 
-- MySQL コンテナを立ち上げる。
+- MySQL コンテナを立ち上げる
 
 ```bash
 docker-compose up -d
@@ -36,13 +38,13 @@ docker-compose up -d
 
 ## Usage
 
-- 任意のファイルを実行する。
+- 任意のファイルを実行する
 
 ```bash
-npx ts-node .\TSNote\InterfaceNote.ts
+npx ts-node .\20_tsNote\InterfaceNote.ts
 ```
 
-- リバーシアプリを起動する。
+- リバーシアプリを起動する
 
 ```bash
 npm start
