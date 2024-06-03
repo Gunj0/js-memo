@@ -85,7 +85,7 @@ npm start
 ## Author
 
 - GitHub: [Gunj0](https://github.com/Gunj0)
-- X(Twitter): [@gunjo2000](https://twitter.com/gunjo2000)
+- X(Twitter): [@gunjo2000](https://x.com/gunjo2000)
 - BlueSky: [@gunj0.bsky.social](https://bsky.app/profile/gunj0.bsky.social)
 
 ## License
