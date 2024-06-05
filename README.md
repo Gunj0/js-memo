@@ -18,10 +18,10 @@
 
 - Docker Desktop をインストール
 
-- リポジトリをプル
+- リポジトリをクローン
 
 ```bash
-git pull https://github.com/Gunj0/ts-sample.git
+git clone https://github.com/Gunj0/js-memo.git
 ```
 
 - パッケージを復元
@@ -50,7 +50,7 @@ npx ts-node .\20_tsNote\InterfaceNote.ts
 npm start
 ```
 
-## ライブラリ
+## Library
 
 ### basic
 
