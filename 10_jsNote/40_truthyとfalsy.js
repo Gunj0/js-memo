@@ -1,4 +1,7 @@
+"use strict";
+
 /* truthy */
+
 "ABC";
 10;
 [];
@@ -6,6 +9,7 @@
 }
 
 /* falsy */
+
 0;
 undefined;
 null;

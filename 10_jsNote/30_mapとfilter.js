@@ -1,4 +1,7 @@
-/* map・filter */
+"use strict";
+
+/* map と filter */
+
 // map: 要素を1つずつ操作する
 const nameArr1 = ["田中", "山田", "佐藤"];
 nameArr.map((nam) => {
