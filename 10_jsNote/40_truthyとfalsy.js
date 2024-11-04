@@ -1,25 +1,23 @@
 "use strict";
 
-/* truthy */
+/* falsy */
+0; // 数字のみ
+undefined;
+null;
+NaN; // Not a number
+(""); // 空文字
 
-"ABC";
+/* truthy */
+// falsy以外
+("0");
+("ABC");
 10;
 [];
 {
 }
 
-/* falsy */
+// 左がtruthyなら右が実行される(論理和)
+const fee1 = 1 && "設定済"; //
 
-0;
-undefined;
-null;
-NaN;
-("");
-
-// truthyの時に値を返却して終了する
-const num1 = null;
-const fee1 = num1 || "金額未設定"; // "金額未設定"が代入される
-
-// falsyの時に値を返却して終了する
-const num2 = 1;
-const fee2 = num2 && "設定済"; // "設定済"が代入される
+// 左がfalsyなら右が実行される(論理積)
+const fee2 = null || "金額未設定";

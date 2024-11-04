@@ -2,19 +2,18 @@
 
 /* 分割代入(デストラクチャリング) */
 
-// オブジェクトの分割代入
+// オブジェクトの分割代入(プロパティ名を合わせる)
 const myProfile1 = {
-  name: "田中",
-  age: 30,
+  name1: "田中",
+  age1: 30,
 };
-const { name1, age1 } = myProfile1;
-
 // 必要なプロパティのみを取捨選択もできる
-const { name } = myProfile1;
-
-// 配列の分割代入
-const myProfile2 = ["山田", 20];
-const [name2, age2] = myProfile2;
-
-// 分割代入のデフォルト値
+const { name1 } = myProfile1; // 1つ目
+const { age1 } = myProfile1; // 2つ目
+// デフォルト値
 const { name3, age3, length3 = 150 } = myProfile1;
+
+// 配列の分割代入(変数名は自由)
+const myProfile2 = ["山田", 20];
+const [name2] = myProfile2; // 1つ目
+const [, age2] = myProfile2; // 2つ目
