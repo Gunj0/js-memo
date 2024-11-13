@@ -7,9 +7,9 @@
 let letSample = 1;
 
 // constは再代入不可
+// プロパティの再代入は可能
 const constSample = 2;
 
-// constでもプロパティの再代入は可能
 const constSampleProp = {
   name: "田中",
   age: 30,
