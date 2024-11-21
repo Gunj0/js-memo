@@ -1,4 +1,4 @@
-/* 非同期async/await */
+/* asyncとawait */
 import fs from "fs"; // Node.jsのファイル読み込みライブラリ
 import util from "util"; // Node.jsの便利機能パッケージライブラリ
 

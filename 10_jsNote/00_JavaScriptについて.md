@@ -19,7 +19,7 @@
 ## データ型
 
 - 数値
-  - number: 1, 6.2, -10
+  - number: 1, 6.2, -10, 1.2e-3
 - 文字列
   - string: 'Hi', "Hi", `Hi`
 - 論理値
@@ -29,9 +29,12 @@
 - オブジェクト
   - object: {name: 'test', age: 30}
 
-## Tips
+## 読み込み方
 
-- html で defer をつけると html のあとに読み込みできる
+- HTML ファイル内に `<script>console.log("hello")</script>`
+- HTML ファイル内に `<script src="main.js"></script>`
+
+- HTML で defer をつけると HTML のあとに読み込みできる
 
 ```html
 <script src="app.js" defer></script>
@@ -72,6 +75,10 @@
   - ページ遷移でちらつきがなくなる
   - 表示速度がアップしてユーザー体験向上
   - コンポーネント分割が容易になり開発効率アップ
+
+## デバッグ
+
+- ファイル先頭に`'use script'`と書くと厳格モードになる
 
 ## 参考文献
 
