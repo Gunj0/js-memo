@@ -25,3 +25,5 @@
   - 各パッケージの最新バージョンが表示される
 - `npm update`
   - package.json 記述範囲内でアップデートする
+- `npm i next@latest`
+  - 特定のパッケージを最新化する場合
